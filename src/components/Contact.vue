@@ -59,10 +59,11 @@ const openWhatsApp = () => {
 const name = ref('')
 const email = ref('')
 const message = ref('')
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
 
 const sendMessage = async () => {
   try {
-    const res = await axios.post('http://localhost:5000/send-message', {
+    const res = await axios.post(`${apiBaseUrl}/send-message`, {
       name: name.value,
       email: email.value,
       message: message.value
