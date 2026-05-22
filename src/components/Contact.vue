@@ -63,10 +63,10 @@ const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
 
 const sendMessage = async () => {
   try {
-    const res = await axios.post(`${apiBaseUrl}/send-message`, {
-      name: name.value,
-      email: email.value,
-      message: message.value
+    const res = await axios.post('http://184.174.36.22:5000/send-message', {
+  name: name.value,
+  email: email.value,
+  message: message.value
     })
 
     if (res.data.success) {
